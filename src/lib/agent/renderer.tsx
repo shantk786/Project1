@@ -39,7 +39,13 @@ export function renderNode(node: ComponentNode): React.ReactNode {
                 </React.Fragment>
         )) || null;
 
-    return <Component {...node.props}>{children}</Component>;
+    return (
+        <Component
+            {...(node.props as any)}
+        >
+            {children}
+        </Component>
+    );
 }
 
 export function renderPlan(plan: { components: ComponentNode[] }) {
